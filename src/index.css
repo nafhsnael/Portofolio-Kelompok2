@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.home-image {
+  transition: transform 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
+  transform: scale(1);
+}
+
+.home-image:hover {
+  transform: scale(1.08) translateY(-6px);
+  filter: brightness(1.06);
+  box-shadow: 0 40px 100px rgba(108, 99, 255, 0.35);
+}
+
+.nav-link {
+  display: inline-block;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 24px rgba(108, 99, 255, 0.25);
+}
+
+.nav-link.active {
+  background: #52459D;
+  color: white;
+}
