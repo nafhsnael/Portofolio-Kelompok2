@@ -10,11 +10,12 @@ export default function Portfolio() {
   const navLinkStyle = {
     color: "white",
     textDecoration: "none",
-    padding: "6px 10px",
+    padding: "8px 14px",
     borderRadius: "20px",
     cursor: "pointer",
     fontSize: "13px",
     whiteSpace: "nowrap",
+    flexShrink: 0
   };
 
   useEffect(() => {
@@ -40,73 +41,63 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#0c0624",
-        position: "relative",
-        overflow: "hidden",
-        color: "white",
-      }}
-    >
-      {/* 🔥 BACKGROUND BLUR */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50px",
-          left: "50px",
-          width: "300px",
-          height: "300px",
-          background: "rgba(108,99,255,0.6)",
-          borderRadius: "50%",
-          filter: "blur(120px)",
-          zIndex: 0,
-        }}
-      />
-
-      <div
-        style={{
-          position: "absolute",
-          bottom: "50px",
-          right: "50px",
-          width: "300px",
-          height: "300px",
-          background: "rgba(167,139,250,0.5)",
-          borderRadius: "50%",
-          filter: "blur(120px)",
-          zIndex: 0,
-        }}
-      />
-
-      {/* 🔥 NAVBAR */}
+    <div>
+      {/* NAVBAR */}
       <nav
         style={{
           position: "fixed",
-          top: "16px",
+          top: "20px",
           left: "50%",
           transform: "translateX(-50%)",
+
           width: "fit-content",
           minHeight: "48px",
-          padding: "8px 30px",
+          padding: "8px 20px",
+
           display: "flex",
+          justifyContent: "space-between",
           alignItems: "center",
-          gap: "35px",
-          borderRadius: "40px",
+          gap: "40px",
+
+          borderRadius: "50px",
           background: "rgba(58, 19, 88, 0.35)",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
-          border: "1px solid rgba(168, 85, 247, 0.25)",
-          boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+          backdropFilter: "blur(15px)",
+          WebkitBackdropFilter: "blur(15px)",
+
+          border: "1px solid rgba(168, 85, 247, 0.3)",
+          boxShadow: "0 8px 25px rgba(0,0,0,0.3)",
+
           zIndex: 999,
         }}
       >
-        <span style={{ fontSize: "18px", fontWeight: "bold" }}>NN</span>
+        {/* LOGO */}
+        <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+          <span
+            style={{
+              fontFamily: "Poppins, sans-serif",
+              fontSize: "18px",
+              fontWeight: "bold",
+              letterSpacing: "0.6px"
+            }}
+          >
+            NN
+          </span>
+        </div>
 
-        <div style={{ display: "flex", gap: "18px" }}>
+        {/* MENU */}
+        <div
+          style={{
+            display: "flex",
+            gap: "8px",
+            alignItems: "center",
+            flexWrap: "wrap"
+          }}
+        >
           <a
             href="#home"
             className={`nav-link ${activeSection === "home" ? "active" : ""}`}
             style={navLinkStyle}
+            onClick={() => setActiveSection("home")}
           >
             HOME
           </a>
@@ -115,39 +106,36 @@ export default function Portfolio() {
             href="#about"
             className={`nav-link ${activeSection === "about" ? "active" : ""}`}
             style={navLinkStyle}
+            onClick={() => setActiveSection("about")}
           >
-            ABOUT
+            ABOUT ME
           </a>
 
           <a
             href="#project"
-            className={`nav-link ${
-              activeSection === "project" ? "active" : ""
-            }`}
+            className={`nav-link ${activeSection === "project" ? "active" : ""}`}
             style={navLinkStyle}
+            onClick={() => setActiveSection("project")}
           >
             SERTIFIKAT
           </a>
 
           <a
             href="#contact"
-            className={`nav-link ${
-              activeSection === "contact" ? "active" : ""
-            }`}
+            className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
             style={navLinkStyle}
+            onClick={() => setActiveSection("contact")}
           >
             CONTACT
           </a>
         </div>
       </nav>
 
-      {/* 🔥 CONTENT */}
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <HomeSection />
-        <AboutMe />
-        <Projects />
-        <Contact />
-      </div>
+      {/* SECTIONS */}
+      <HomeSection />
+      <AboutMe />
+      <Projects />
+      <Contact />
     </div>
   );
 }
