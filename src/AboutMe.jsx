@@ -15,6 +15,9 @@ export default function AboutMe() {
       <div style={{ maxWidth: "860px", margin: "0 auto" }}>
         <h2 style={{ fontSize: "2.5rem", marginBottom: "16px" }}>About Me</h2>
         <p style={{ lineHeight: 1.8, fontSize: "1.05rem", marginBottom: "20px" }}>
+          <p> Nama : Nafhisa Nailah Husnah</p>
+          <p>Nim : 253140707111072</p>
+            <p>Kelas : T2F</p>
           I am a dedicated and highly motivated student currently pursuing my studies in Teknologi informasi. My academic journey has always been driven by a deep curiosity about how the world works and a passion for continuous self-improvement. I thrive in environments that challenge my analytical thinking and allow me to apply theoretical knowledge to practical, real-world scenarios. Beyond the classroom, I am an individual who values discipline and creativity, often seeking a balance between structured learning and innovative problem-solving.
 
           Throughout my time in Brawijaya University, I have developed a keen interest in digital marketing, coding, sustainable design. I believe that being a student is not just about earning a degree, but about building a mindset that is adaptable to the ever-changing professional landscape. I enjoy collaborating with diverse groups of people, as I believe that great ideas are born from collective effort and different perspectives. My goal is to leverage my education and skills to make a meaningful impact in my field and contribute positively to my community.

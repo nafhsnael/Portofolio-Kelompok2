@@ -105,7 +105,7 @@ export default function Portfolio() {
             style={navLinkStyle}
             onClick={() => setActiveSection("project")}
           >
-            PROJECT
+            SERTIFIKAT
           </a>
           <a
             href="#contact"
