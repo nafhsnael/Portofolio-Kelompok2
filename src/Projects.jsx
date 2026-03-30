@@ -45,6 +45,12 @@ export default function Projects() {
         scrollMarginTop: "90px"
       }}
     >
+      <section
+  style={{
+    position: "relative",
+    zIndex: 2
+  }}
+></section>
       <div style={{ maxWidth: "960px", margin: "0 auto" }}>
         <h2 style={{ fontSize: "2.5rem", marginBottom: "16px" }}>Sertifikat</h2>
         <div

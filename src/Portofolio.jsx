@@ -10,25 +10,27 @@ export default function Portfolio() {
   const navLinkStyle = {
     color: "white",
     textDecoration: "none",
-    padding: "8px 14px",
+    padding: "6px 10px",
     borderRadius: "20px",
     cursor: "pointer",
     fontSize: "13px",
     whiteSpace: "nowrap",
-    flexShrink: 0
   };
 
   useEffect(() => {
     const sectionIds = ["home", "about", "project", "contact"];
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 110;
       let current = "home";
+
       sectionIds.forEach((id) => {
         const section = document.getElementById(id);
         if (section && section.offsetTop <= scrollPosition) {
           current = id;
         }
       });
+
       setActiveSection(current);
     };
 
@@ -40,89 +42,112 @@ export default function Portfolio() {
   return (
     <div
       style={{
-        background: "#0c0624",
         minHeight: "100vh",
+        background: "#0c0624",
+        position: "relative",
+        overflow: "hidden",
         color: "white",
-        fontFamily: "Poppins, sans-serif",
-        paddingTop: "100px",
-        overflowX: "hidden",
-        scrollBehavior: "smooth"
       }}
     >
-      {/* NAVBAR */}
+      {/* 🔥 BACKGROUND BLUR */}
+      <div
+        style={{
+          position: "absolute",
+          top: "50px",
+          left: "50px",
+          width: "300px",
+          height: "300px",
+          background: "rgba(108,99,255,0.6)",
+          borderRadius: "50%",
+          filter: "blur(120px)",
+          zIndex: 0,
+        }}
+      />
+
+      <div
+        style={{
+          position: "absolute",
+          bottom: "50px",
+          right: "50px",
+          width: "300px",
+          height: "300px",
+          background: "rgba(167,139,250,0.5)",
+          borderRadius: "50%",
+          filter: "blur(120px)",
+          zIndex: 0,
+        }}
+      />
+
+      {/* 🔥 NAVBAR */}
       <nav
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          width: "100vw",
-          boxSizing: "border-box",
-          minHeight: "70px",
-          padding: "14px 20px",
+          top: "16px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "fit-content",
+          minHeight: "48px",
+          padding: "8px 30px",
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          background: "rgba(30,20,60,0.95)",
-          backdropFilter: "blur(10px)",
-          zIndex: 100,
-          overflow: "hidden"
+          gap: "35px",
+          borderRadius: "40px",
+          background: "rgba(58, 19, 88, 0.35)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          border: "1px solid rgba(168, 85, 247, 0.25)",
+          boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+          zIndex: 999,
         }}
       >
-        <div style={{ display: "flex", gap: "16px", alignItems: "center", marginLeft: "6px" }}>
-          <span
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              fontSize: "28px",
-              fontWeight: "bold",
-              letterSpacing: "0.6px"
-            }}
-          >
-            nafhisa naila
-          </span>
-        </div>
+        <span style={{ fontSize: "18px", fontWeight: "bold" }}>NN</span>
 
-        <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end", minWidth: 0, maxWidth: "70vw" }}>
+        <div style={{ display: "flex", gap: "18px" }}>
           <a
             href="#home"
             className={`nav-link ${activeSection === "home" ? "active" : ""}`}
             style={navLinkStyle}
-            onClick={() => setActiveSection("home")}
           >
             HOME
           </a>
+
           <a
             href="#about"
             className={`nav-link ${activeSection === "about" ? "active" : ""}`}
             style={navLinkStyle}
-            onClick={() => setActiveSection("about")}
           >
-            ABOUT ME
+            ABOUT
           </a>
+
           <a
             href="#project"
-            className={`nav-link ${activeSection === "project" ? "active" : ""}`}
+            className={`nav-link ${
+              activeSection === "project" ? "active" : ""
+            }`}
             style={navLinkStyle}
-            onClick={() => setActiveSection("project")}
           >
             SERTIFIKAT
           </a>
+
           <a
             href="#contact"
-            className={`nav-link ${activeSection === "contact" ? "active" : ""}`}
+            className={`nav-link ${
+              activeSection === "contact" ? "active" : ""
+            }`}
             style={navLinkStyle}
-            onClick={() => setActiveSection("contact")}
           >
             CONTACT
           </a>
         </div>
       </nav>
 
-      <HomeSection />
-      <AboutMe />
-      <Projects />
-      <Contact />
+      {/* 🔥 CONTENT */}
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <HomeSection />
+        <AboutMe />
+        <Projects />
+        <Contact />
+      </div>
     </div>
   );
 }
-

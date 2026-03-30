@@ -12,6 +12,12 @@ export default function Contact() {
         scrollMarginTop: "90px"
       }}
     >
+      <section
+  style={{
+    position: "relative",
+    zIndex: 1
+  }}
+></section>
       <div style={{ maxWidth: "760px", margin: "0 auto" }}>
         <h2 style={{ fontSize: "2.5rem", marginBottom: "16px" }}>Contact</h2>
         <p style={{ fontSize: "1.05rem", lineHeight: 1.8, marginBottom: "24px" }}>

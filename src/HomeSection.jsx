@@ -3,34 +3,32 @@ import React from "react";
 export default function HomeSection() {
   return (
     <section
-      id="home"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        textAlign: "center",
-        padding: "40px 20px",
-        position: "relative",
-        overflow: "hidden",
-        scrollMarginTop: "90px"
-      }}
+  id="home"
+  style={{
+    minHeight: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "column",
+    textAlign: "center",
+    padding: "40px 20px",
+    position: "relative",
+    zIndex: 1, // tambahin ini
+    overflow: "hidden",
+    scrollMarginTop: "90px"
+  }}
     >
-      <div
-        style={{
+      <div className="hero-background" style={{
           position: "absolute",
           inset: 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           pointerEvents: "none"
-        }}
-      >
-        <span
-          style={{
+        }}>
+        <span className="hero-background-text" style={{
             fontFamily: "Notable, sans-serif",
-            fontSize: "10rem",
+            fontSize: "7rem",
             fontWeight: 900,
             color: "rgba(108, 99, 255, 0.12)",
             textTransform: "uppercase",
@@ -38,20 +36,19 @@ export default function HomeSection() {
             lineHeight: 1,
             whiteSpace: "nowrap",
             textShadow: "0 0 40px rgba(108, 99, 255, 0.15)"
-          }}
-        >
-          naila portfolio
+          }}>
+          naila portofolio
         </span>
       </div>
 
       <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: "980px" }}>
-        <p style={{ margin: 0, fontSize: "1rem", color: "#bfb8ff", letterSpacing: "0.2em", textTransform: "uppercase" }}>
+        <p className="hero-subtitle">
          Welcome to my portofolio
         </p>
-        <h1 style={{ fontSize: "3rem", margin: "16px 0 20px", letterSpacing: "1px" }}>
-          Halo, i'm Naila
+        <h1 className="typed-title" style={{ fontSize: "3rem", margin: "16px 0 20px", letterSpacing: "1px" }}>
+          Hi! i'm Naila
         </h1>
-        <p style={{ margin: "0 auto 32px", maxWidth: "720px", lineHeight: 1.8, fontSize: "1.05rem", color: "#d7d0f5" }}>
+        <p className="hero-description">
            a Web Developer & UI/UX Designer who loves turning ideas into cute, meaningful, and user-friendly websites
         </p>
 
@@ -59,7 +56,7 @@ export default function HomeSection() {
           <img
             src="/nailacntx.png"
             alt="Naila"
-            className="home-image"
+            className="home-image hero-image"
             style={{
               width: "320px",
               maxWidth: "90%",
