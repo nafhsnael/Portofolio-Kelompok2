@@ -1,1 +1,74 @@
+# 🚀 Proyek ReactJS Kelompok - Teknologi Informasi (T2F)
 
+Proyek ini adalah tugas kolaborasi tim untuk membangun profil digital mahasiswa menggunakan **ReactJS**, **Tailwind CSS**, dan **Framer Motion**. Project ini dikelola menggunakan **Git & GitHub** dengan sistem branching mandiri sesuai instruksi BRONE UB. 
+
+---
+
+## 👥 Anggota Kelompok
+| Nama Lengkap | NIM | Peran | Branch |
+| :--- | :--- | :--- | :--- |
+| **Nafhisa Nailah Husnah** | 253140707111072| Ketua | `dev/naila` |
+| **Serli Maharani Putri Yustina** |  253140707111085 | Anggota | `dev/serli` |
+| **Firyal Zalfaa Aulia** | 253140707111070 | Anggota | `dev/zalfaa` |
+| **Kasiva Imtiyas Zaidah Iftinan** | 253140707111084 | Anggota | `dev/zida` |
+
+---
+
+## 🛠️ Stack Teknologi
+- **Framework:** [ReactJS (Vite)](https://react.dev/)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animation:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [React Icons](https://react-icons.github.io/react-icons/)
+- **Version Control:** Git & GitHub
+
+---
+
+## 📖 Fitur Utama
+- **Responsive Design:** Tampilan optimal di HP maupun Laptop.
+- **Modern UI:** Menggunakan standar Tailwind v4 terbaru.
+- **Routing:** Navigasi antar profil tanpa reload halaman (SPA).
+- **Interactive:** Animasi transisi yang halus di setiap halaman profil.
+
+---
+
+## 🚀 Panduan Instalasi Lokal
+
+Jika ingin menjalankan project ini di komputer lokal, ikuti langkah berikut:
+
+1. **Clone Repository:**
+   ```bash
+   git clone .... git clone
+
+2. Masuk ke Direktori: cd portofolio-kelompok2
+
+3. Install Dependencies: npm install
+
+4. Jalankan Project: npm run dev
+
+5. Buka http://localhost:5173 di browser Anda.
+
+📋 Project ini mengikuti skema kolaborasi tim sebagai berikut:
+
+main : Branch utama untuk kodingan final yang sudah stabil.
+
+dev/serli : Branch pengembangan untuk profil Serli.
+
+dev/zalfaa : Branch pengembangan untuk profil Zalfaa.
+
+dev/zida : Branch pengembangan untuk profil Zida.
+
+📸 Tampilan Website
+Halaman profil masing-masing anggota dapat diakses melalui rute:
+
+/naila
+
+/serli
+
+/zalfaa
+
+/zida
+
+Universitas Brawijaya
+Building Up Noble Future 
+
+clone ....
