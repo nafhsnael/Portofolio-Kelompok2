@@ -4,10 +4,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 // Pastikan file ini ada di src/pages/
 import NailaProfile from './pages/Naila/Portofolio';
 import SerliProfile from './pages/SerliProfile';
-import ZalfaaProfile from './pages/ZalfaaProfile';
-import ZidaProfile from './pages/ZidaProfile';
+import ZalfaaProfile from "./pages/Zalfaa/app.jsx";
+import ZidaProfile from './pages/Zida/App';
 
-// Amanakke file kasebut ana ing src/pages/
 function App() {
   return (
     <Router>
