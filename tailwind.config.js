@@ -10,7 +10,7 @@ export default {
         "112.5": "450px", // Custom width untuk w-[450px]
       },
       backgroundImage: {
-        // Memastikan gradient syntax yang tepat untuk Tailwind v4
+        
       },
     },
   },
