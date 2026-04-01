@@ -5,10 +5,12 @@ import { ArrowRight } from 'lucide-react';
 
 // ==================== IMPOR PROFIL ====================
 // Impor semua komponen profil dari pages
-import NailaProfile from './pages/Naila/Portofolio'; 
-import SerliProfile from './pages/SerliProfile'; 
-import ZalfaaProfile from './pages/Zalfaa/App'; 
-import ZidaProfile from './pages/Zida/App';
+// Catatan: Menggunakan ekstensi .jsx untuk kompatibilitas cross-platform (Windows, Mac, Linux)
+// Case sensitivity: Persis sesuai folder structure (Naila, SerliProfile, Zalfaa, Zida)
+import NailaProfile from './pages/Naila/Portofolio.jsx'; 
+import SerliProfile from './pages/SerliProfile.jsx'; 
+import ZalfaaProfile from './pages/Zalfaa/App.jsx'; 
+import ZidaProfile from './pages/Zida/App.jsx';
 
 // ==================== IMPOR ASET (FOTO) ====================
 // Impor foto profil anggota kelompok sesuai struktur assets
