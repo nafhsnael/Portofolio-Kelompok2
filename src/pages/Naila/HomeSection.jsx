@@ -1,4 +1,5 @@
 import React from "react";
+import nailaImg from '../../assets/naila.jpeg';
 
 export default function HomeSection() {
   return (
@@ -53,7 +54,7 @@ export default function HomeSection() {
 
         <div style={{ display: "flex", justifyContent: "center" }}>
           <img
-            src="/nailacntx.png"
+            src={nailaImg}
             alt="Naila"
             className="home-image hero-image"
             style={{

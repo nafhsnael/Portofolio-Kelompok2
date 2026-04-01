@@ -1,0 +1,15 @@
+{
+  "extends": ["react-app", "react-app/jest"],
+  "rules": {
+    "no-unused-vars": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.jsx", "**/*.js"],
+      "rules": {
+        "@tailwindcss/no-arbitrary-value": "off",
+        "@tailwindcss/enforces-negative-arbitrary-values": "off"
+      }
+    }
+  ]
+}

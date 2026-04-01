@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; // Gunaake ini supoyo nyambung karo App.jsx
+import { Link } from 'react-router-dom';
+import serliImg from '../assets/fotoserli.jpeg';
 
 const SerliProfile = () => {
   const bio = "Halo! Saya Serli, mahasiswi Teknologi Informasi di Universitas Brawijaya yang passionate dalam UI/UX Design dan Frontend Development. Bagi saya, coding bukan sekadar baris perintah, melainkan sebuah seni untuk menciptakan solusi digital yang tidak hanya cantik secara visual, tetapi juga fungsional dan user-friendly. Saat ini, saya fokus mengasah kemampuan di ReactJS, Tailwind CSS, dan berbagai tools desain modern untuk membangun aplikasi web yang intuitif dan responsif. Saya percaya bahwa teknologi harus menciptakan pengalaman yang bermakna bagi setiap pengguna, dan saya berkomitmen untuk terus belajar dan berinovasi dalam setiap proyek.";
@@ -85,8 +86,8 @@ const SerliProfile = () => {
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center mb-12">
             <motion.div variants={scaleIn} className="mb-8 inline-block relative">
               <div className="w-40 h-40 rounded-full bg-teal-500 flex items-center justify-center border-4 border-white shadow-xl overflow-hidden">
-                {/* Foto Serli (Solusi bypass) */}
-                <span className="text-6xl text-white font-black">S</span>
+                {/* Foto Serli dari assets */}
+                <img src={serliImg} alt="Profil Serli" className="w-full h-full object-cover" />
               </div>
             </motion.div>
             

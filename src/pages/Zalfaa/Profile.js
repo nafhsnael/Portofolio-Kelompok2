@@ -173,7 +173,7 @@ export default function App() {
   const [page, setPage] = useState("home");
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br 
+    <div className="flex min-h-screen bg-linear-to-br 
     from-pink-100 via-white to-pink-200 p-4">
 
       <Sidebar setPage={setPage} />

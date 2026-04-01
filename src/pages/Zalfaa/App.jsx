@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import zalfaaImg from '../../assets/zalfa.jpeg';
 
 // ===== FONT STYLE =====
 const titleFont = { fontFamily: "'Playfair Display', serif" };
@@ -10,7 +11,7 @@ const WatermarkLogo = () => (
   <img
     src="/logo-universitas.png"
     alt="Logo Universitas"
-    className="fixed inset-0 m-auto w-[450px] opacity-10 pointer-events-none select-none z-0"
+    className="fixed inset-0 m-auto w-112.5 opacity-10 pointer-events-none select-none z-0"
   />
 );
 
@@ -83,7 +84,7 @@ function Header({ setPage, activePage }) {
   const pages = ["home", "profile", "email", "kontak", "skill"];
 
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-pink-200 to-pink-100 shadow-md p-4 flex justify-between items-center flex-wrap gap-3">
+    <header className="sticky top-0 z-50 bg-linear-to-r from-pink-200 to-pink-100 shadow-md p-4 flex justify-between items-center flex-wrap gap-3">
       <h1 style={titleFont} className="text-2xl font-bold text-pink-700">
         Website Profile
       </h1>
@@ -155,7 +156,7 @@ function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-pink-100 via-white to-pink-200">
+    <div className="min-h-screen relative overflow-hidden bg-linear-to-br from-pink-100 via-white to-pink-200">
 
       {/* Logo Universitas Transparan */}
       <div
@@ -168,7 +169,7 @@ function HomePage() {
 <div className="absolute inset-0 overflow-hidden pointer-events-none">
 
   <div
-    className="absolute top-0 left-[-100%] w-[200%] h-full animate-shimmer"
+    className="absolute top-0 -left-full w-[200%] h-full animate-shimmer"
     style={{
       background:
         "linear-gradient(120deg, transparent 30%, rgba(75, 4, 16, 0.4) 50%, transparent 70%)",
@@ -206,7 +207,7 @@ function HomePage() {
 
         <div className="flex flex-col md:flex-row items-center gap-10">
           <img
-            src="/foto-pribadi.jpg"
+            src={zalfaaImg}
             alt="Foto Pribadi"
             className="w-48 h-48 object-cover rounded-full border-8 border-pink-300 shadow-lg"
           />
@@ -508,7 +509,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-pink-50 to-pink-100 relative overflow-hidden select-none"
+      className="min-h-screen bg-linear-to-br from-pink-50 to-pink-100 relative overflow-hidden select-none" 
       style={bodyFont}
     >
       <WatermarkLogo />
