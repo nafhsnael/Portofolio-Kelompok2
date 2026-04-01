@@ -1,20 +1,35 @@
+// =====================================================
+// STRICT IMPORT RULES:
+// 1) Huruf kapital WAJIB sesuai sidebar (Naila, Zalfaa, Zida, SerliProfile)
+// 2) Semua komponen WAJIB pakai .jsx extension
+// 3) Path WAJIB ke src/pages/... (tidak ada duplikat/incomplete)
+// =====================================================
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-// ==================== IMPOR PROFIL ====================
-// Impor semua komponen profil dari pages
-// Catatan: Menggunakan ekstensi .jsx untuk kompatibilitas cross-platform (Windows, Mac, Linux)
-// Case sensitivity: Persis sesuai folder structure (Naila, SerliProfile, Zalfaa, Zida)
-import NailaProfile from './pages/Naila/Portofolio.jsx'; 
-import SerliProfile from './pages/SerliProfile.jsx'; 
-import ZalfaaProfile from './pages/Zalfaa/App.jsx'; 
+// ==================== IMPOR KOMPONEN PROFIL ====================
+// Menggunakan capital letters & .jsx extension sesuai folder structure di sidebar
+// Path: src/pages/[FolderName]/[FileName].jsx
+
+// Naila Profile - src/pages/Naila/Portofolio.jsx
+import NailaProfile from './pages/Naila/Portofolio.jsx';
+
+// Serli Profile - src/pages/SerliProfile.jsx (di root pages, bukan subfolder)
+import SerliProfile from './pages/SerliProfile.jsx';
+
+// Zalfaa Profile - src/pages/Zalfaa/App.jsx (Capital Z + dua 'a')
+import ZalfaaProfile from './pages/Zalfaa/App.jsx';
+
+// Zida Profile - src/pages/Zida/App.jsx (Capital Z)
 import ZidaProfile from './pages/Zida/App.jsx';
 
-// ==================== IMPOR ASET (FOTO) ====================
-// Impor foto profil anggota kelompok sesuai struktur assets
-// CATATAN: Nama file PERSIS sesuai nama folder
+// ==================== IMPOR ASET FOTO ====================
+// Semua foto menggunakan format .jpeg
+// Path: src/assets/[FileName].jpeg (nama file PERSIS sesuai yang ada)
+
 import fotoNaila from './assets/naila.jpeg';
 import fotoSerli from './assets/fotoserli.jpeg';
 import fotoZalfaa from './assets/zalfa.jpeg';
