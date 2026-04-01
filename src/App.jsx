@@ -1,10 +1,3 @@
-// =====================================================
-// STRICT IMPORT RULES:
-// 1) Huruf kapital WAJIB sesuai sidebar (Naila, Zalfaa, Zida, SerliProfile)
-// 2) Semua komponen WAJIB pakai .jsx extension
-// 3) Path WAJIB ke src/pages/... (tidak ada duplikat/incomplete)
-// =====================================================
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
