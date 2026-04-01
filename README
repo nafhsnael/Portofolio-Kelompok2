@@ -37,7 +37,7 @@ Jika ingin menjalankan project ini di komputer lokal, ikuti langkah berikut:
 
 1. **Clone Repository:**
    ```bash
-   git clone .... git clone
+   git clone [https://github.com/nafhsnael/Portofolio-Kelompok2.git](https://github.com/nafhsnael/Portofolio-Kelompok2.git) git clone
 
 2. Masuk ke Direktori: cd portofolio-kelompok2
 
