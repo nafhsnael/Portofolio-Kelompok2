@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Pastikan file ini ada di src/pages/
-import NailaProfile from './pages/NailaProfile';
+import NailaProfile from './pages/Naila/Portofolio';
 import SerliProfile from './pages/SerliProfile';
 import ZalfaaProfile from './pages/ZalfaaProfile';
 import ZidaProfile from './pages/ZidaProfile';
