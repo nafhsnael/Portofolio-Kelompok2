@@ -1,260 +1,174 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, User, Hash, Book, MapPin, Mail, Phone, Code, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import zidaImg from '../../assets/zida.jpeg'; 
 
-// ==================== IMPORT ASET (FOTO) ====================
-// Impor foto Zida dari folder assets
-// Path: ../../assets/ (naik 2 level dari pages/Zida/)
-import fotoZida from '../../assets/zida.jpeg';
+// --- ANIMATION VARIANTS ---
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+  }
+};
 
-// ==================== KOMPONEN PROFIL ZIDA ====================
-// Halaman profil lengkap untuk Zida (253140707111084) dengan desain Glassmorphism
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }
+  }
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1, scale: 1,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
 const ZidaProfile = () => {
-  // ======== DATA DIRI ZIDA ========
-  // Informasi biodata lengkap sesuai data akademik
-  const dataDiri = {
-    nama: 'Zida',
-    nim: '253140707111084',
-    kelas: 'T2F',
-    domisili: 'TRENGGALEK',
-    universitas: 'Universitas Brawijaya',
-    jurusan: 'Teknologi Informasi',
-    email: 'zida.student@ub.ac.id',
-    noTelepon: '+62 812-xxxx-xxxx',
-    foto: fotoZida,
+  const homeRef = useRef(null);
+  const bioRef = useRef(null);
+  const skillRef = useRef(null);
+
+  const scrollToSection = (elementRef) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop - 80,
+      behavior: 'smooth',
+    });
   };
 
-  // ======== DAFTAR KARTU INFORMASI ========
-  // Array untuk menampilkan informasi dalam kartu berwarna dengan ikon Lucide-React
-  const daftarInformasi = [
-    {
-      ikon: User,
-      label: 'Nama Lengkap',
-      value: dataDiri.nama,
-      warna: 'from-purple-500 to-purple-700',
-    },
-    {
-      ikon: Hash,
-      label: 'Nomor Induk Mahasiswa',
-      value: dataDiri.nim,
-      warna: 'from-blue-500 to-blue-700',
-    },
-    {
-      ikon: Book,
-      label: 'Kelas',
-      value: dataDiri.kelas,
-      warna: 'from-indigo-500 to-indigo-700',
-    },
-    {
-      ikon: MapPin,
-      label: 'Asal Domisili',
-      value: dataDiri.domisili,
-      warna: 'from-cyan-500 to-cyan-700',
-    },
-    {
-      ikon: Mail,
-      label: 'Alamat Email',
-      value: dataDiri.email,
-      warna: 'from-green-500 to-green-700',
-    },
-    {
-      ikon: Phone,
-      label: 'Nomor Telepon',
-      value: dataDiri.noTelepon,
-      warna: 'from-orange-500 to-orange-700',
-    },
-  ];
+  const biodataRaw = {
+    nama: "Zida",
+    greeting: "Hi, Saya Zida",
+    nim: "253140707111084",
+    kelas: "T2F",
+    prodi: "D3 Teknologi Informasi",
+    universitas: "Universitas Brawijaya",
+    domisili: "Trenggalek, Jawa Timur",
+    deskripsiPanjang: "Halo! Saya Kasiva Imtiyas Zaidah Iftinan, seorang mahasiswi yang saat ini menempuh pendidikan di program studi Teknologi Informasi, Universitas Brawijaya. Ketertarikan saya pada dunia teknologi sebenarnya bermula dari rasa penasaran yang mendalam tentang bagaimana sebuah aplikasi atau situs web yang cantik dan fungsional dapat tercipta hanya dari baris-baris kode. Bagi saya, coding bukan hanya sekadar urusan teknis, melainkan sebuah seni untuk memecahkan masalah dan menciptakan solusi digital yang dapat memberikan dampak positif bagi kehidupan orang banyak. Selama kuliah di T2F, saya terus mengasah kemampuan saya di bidang pengembangan web, khususnya menggunakan teknologi React, TypeScript, dan Tailwind CSS. Meskipun masih dalam tahap belajar, saya memiliki semangat yang membara untuk terus bereksplorasi, belajar dari kesalahan, dan berinovasi dalam setiap proyek yang saya kerjakan. Saya percaya bahwa dengan komitmen yang kuat untuk terus belajar, saya dapat menjadi Frontend Engineer yang handal di masa depan dan berkontribusi secara signifikan dalam ekosistem teknologi Indonesia."
+  };
 
-  // ======== DAFTAR KEAHLIAN ========
-  // Menampilkan keahlian dan tingkat kompetensi Zida
-  const daftarKeahlian = [
-    { nama: 'React.js', level: 'Menengah' },
-    { nama: 'Tailwind CSS', level: 'Mahir' },
-    { nama: 'JavaScript', level: 'Menengah' },
-    { nama: 'Vite', level: 'Pemula' },
+  const skills = [
+    { name: "ReactJS", level: "Intermediate", icon: "⚛️" },
+    { name: "TypeScript", level: "Beginner", icon: "🔷" },
+    { name: "Tailwind CSS", level: "Intermediate", icon: "🎨" },
+    { name: "Node.js", level: "Beginner", icon: "🟢" },
+    { name: "UI/UX Design", level: "Learner", icon: "🖥️" },
+    { name: "GitHub", level: "Intermediate", icon: "🐙" },
   ];
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="min-h-screen bg-linear-to-br from-indigo-950 via-purple-900 to-indigo-950 text-white p-4 sm:p-8"
-    >
-      {/* Efek Background Animasi */}
-      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-cyan-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-pulse"></div>
-      </div>
+    <div className="min-h-screen bg-white font-sans selection:bg-indigo-100 text-slate-900 relative overflow-hidden">
+      
+      {/* NAVBAR */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex justify-between items-center">
+        <Link to="/" className="text-3xl font-black bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent flex items-center gap-2 hover:scale-105 transition-all no-underline">
+          <span className="text-2xl font-black italic">Z</span> Profil
+        </Link>
+        <div className="flex gap-8 font-bold text-slate-600">
+          <button onClick={() => scrollToSection(homeRef)} className="hover:text-indigo-600 cursor-pointer transition-colors uppercase text-xs tracking-widest bg-transparent border-none font-bold">Home</button>
+          <button onClick={() => scrollToSection(bioRef)} className="hover:text-indigo-600 cursor-pointer transition-colors uppercase text-xs tracking-widest bg-transparent border-none font-bold">Biodata</button>
+          <button onClick={() => scrollToSection(skillRef)} className="hover:text-indigo-600 cursor-pointer transition-colors uppercase text-xs tracking-widest bg-transparent border-none font-bold">Keahlian</button>
+          <Link to="/" className="hover:bg-indigo-600 hover:text-white transition-all uppercase text-xs tracking-widest no-underline border border-indigo-600 px-4 py-1 rounded-full text-indigo-600 font-bold">Group</Link>
+        </div>
+      </nav>
 
-      {/* Kontainer Utama */}
-      <div className="max-w-6xl mx-auto relative z-10">
-        
-        {/* ============ TOMBOL KEMBALI KE BERANDA ============ */}
-        {/* Tombol navigasi untuk kembali ke halaman utama */}
-        <motion.div
-          initial={{ x: -20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.1 }}
-          className="mb-8"
-        >
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 px-6 py-3 rounded-full font-bold transition-all border border-white/20 backdrop-blur-sm text-sm sm:text-base hover:scale-105 duration-300"
-          >
-            <ArrowLeft size={20} />
-            ← KEMBALI KE BERANDA
-          </Link>
-        </motion.div>
-
-        {/* ============ BAGIAN HEADER PROFIL ============ */}
-        {/* Header dengan judul dan garis dekoratif */}
-        <motion.div
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-center mb-12 sm:mb-16"
-        >
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-2 uppercase italic tracking-tighter">
-            {dataDiri.nama} <span className="text-cyan-400">Profile</span>
-          </h1>
-          <p className="text-indigo-200 font-mono uppercase tracking-widest text-xs sm:text-sm mb-6">
-            Mahasiswa Teknologi Informasi Kelas T2F
-          </p>
-          <div className="w-24 h-1 bg-linear-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
-        </motion.div>
-
-        {/* ============ KARTU PROFIL UTAMA (GLASSMORPHISM) ============ */}
-        {/* Desain kartu utama dengan efek backdrop-blur dan border transparan */}
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          className="bg-linear-to-br from-white/10 to-white/5 rounded-3xl p-8 sm:p-12 backdrop-blur-lg border border-white/20 shadow-2xl mb-8"
-        >
-          {/* Avatar dan Nama Section */}
-          {/* Menampilkan foto profil Zida dan informasi dasar */}
-          <div className="flex flex-col items-center mb-10 sm:mb-12">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-lg mb-6 border-4 border-indigo-400/50"
-            >
-              {/* Foto Profil dengan efek border indigo */}
-              <img
-                src={dataDiri.foto}
-                alt={dataDiri.nama}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-            <h2 className="text-3xl sm:text-4xl font-bold uppercase tracking-wider">{dataDiri.nama}</h2>
-            <p className="text-indigo-300 text-lg mt-2 font-mono">Kelas {dataDiri.kelas}</p>
-            <p className="text-indigo-400 text-sm mt-1">{dataDiri.universitas}</p>
-          </div>
-
-          {/* ============ GRID INFORMASI DIRI (6 KARTU) ============ */}
-          {/* Menampilkan 6 kartu informasi biodata dengan ikon dan gradien warna */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8"
-          >
-            {daftarInformasi.map((kartu, index) => {
-              const IconComponent = kartu.ikon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 * index + 0.5 }}
-                  className={`bg-linear-to-br ${kartu.warna} rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all transform hover:scale-105 cursor-pointer backdrop-blur-sm border border-white/20`}
-                >
-                  <div className="flex items-start gap-4">
-                    {/* Ikon dengan background semi-transparan */}
-                    <div className="bg-white/20 p-3 rounded-xl shrink-0 backdrop-blur-sm">
-                      <IconComponent size={28} className="text-white" />
-                    </div>
-                    {/* Label dan Value */}
-                    <div className="flex-1 min-w-0">
-                      <p className="text-white/70 text-xs sm:text-sm uppercase font-semibold tracking-widest">
-                        {kartu.label}
-                      </p>
-                      <p className="text-white font-bold text-sm sm:text-lg mt-2 wrap-break-word">
-                        {kartu.value}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
+      {/* SECTION 1: HOME (GREETING) */}
+      <section ref={homeRef} className="min-h-screen flex flex-col items-center justify-center pt-24 px-6 text-center bg-white relative z-10">
+        <motion.div initial="hidden" animate="visible" variants={containerVariants}>
+          <motion.div variants={scaleIn} className="relative inline-block mb-10 group">
+             <div className="absolute inset-0 bg-indigo-500 rounded-full blur-3xl opacity-10 animate-pulse"></div>
+             <img src={zidaImg} alt="Zida" className="relative w-56 h-56 rounded-full border-4 border-white shadow-xl object-cover hover:scale-105 transition-transform duration-500" />
           </motion.div>
-        </motion.div>
+          
+          <motion.p variants={fadeInUp} className="text-indigo-600 font-extrabold tracking-[0.3em] uppercase text-sm mb-4">Portofolio Pribadi</motion.p>
+          
+          {/* REVISI: Kotak Ilang, "Hi, Saya" dadi Ireng (Black) */}
+          <motion.h1 variants={fadeInUp} className="text-7xl font-black mb-6 tracking-tighter leading-tight">
+            <span className="text-black">Hi, Saya </span> 
+            <span className="text-indigo-600">Zida</span>
+          </motion.h1>
 
-        {/* ============ BAGIAN KEAHLIAN ============ */}
-        {/* Card yang menampilkan keahlian dan kompetensi teknis Zida */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="bg-linear-to-r from-cyan-500/20 to-purple-500/20 rounded-2xl p-6 sm:p-8 border border-white/10 backdrop-blur-sm mb-8"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Code size={28} className="text-cyan-400" />
-            <h3 className="text-2xl font-bold uppercase">Keahlian & Kompetensi</h3>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {daftarKeahlian.map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 * index + 0.7 }}
-                className="bg-white/10 rounded-xl p-4 border border-white/20 text-center hover:bg-white/20 hover:border-white/40 transition-all backdrop-blur-sm"
-              >
-                <p className="font-bold text-sm sm:text-base">{skill.nama}</p>
-                <p className="text-indigo-300 text-xs sm:text-sm mt-1">{skill.level}</p>
-              </motion.div>
-            ))}
-          </div>
+          <motion.p variants={fadeInUp} className="max-w-2xl text-xl text-slate-500 leading-relaxed mb-12 italic">
+            "Saya seorang mahasiswi <span className="text-indigo-600 font-semibold uppercase">{biodataRaw.universitas}</span> yang sedang mengeksplorasi dunia pengembangan web dengan React, TypeScript, dan Tailwind CSS."
+          </motion.p>
+          
+          <motion.button 
+            variants={fadeInUp}
+            onClick={() => scrollToSection(bioRef)}
+            className="px-12 py-4 bg-indigo-600 text-white font-bold rounded-full shadow-lg hover:shadow-indigo-200 transition-all uppercase tracking-widest text-xs border-none cursor-pointer"
+          >
+            Explore My Bio 👇
+          </motion.button>
         </motion.div>
+      </section>
 
-        {/* ============ BAGIAN TENTANG SAYA ============ */}
-        {/* Section biografi lengkap Zida dalam Bahasa Indonesia */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="bg-linear-to-br from-purple-500/20 to-indigo-500/20 rounded-2xl p-6 sm:p-8 border border-white/10 backdrop-blur-sm mb-8"
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <Award size={28} className="text-purple-400" />
-            <h3 className="text-2xl font-bold uppercase">Tentang Saya</h3>
+      {/* SECTION 2: BIODATA */}
+      <section ref={bioRef} className="min-h-screen flex items-center justify-center p-6 bg-white relative z-10 border-t border-slate-50">
+        <div className="max-w-6xl w-full">
+          <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-4xl font-black text-slate-800 mb-16 text-center tracking-tight border-b-2 border-indigo-100 pb-4 mx-auto flex justify-center max-w-sm uppercase">📋 Biodata Diri</motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="p-10 bg-white rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-md transition-all">
+               <h3 className="text-xl font-bold text-indigo-600 mb-8 uppercase tracking-widest border-l-4 border-indigo-600 pl-4">Informasi Dasar</h3>
+               <div className="space-y-6">
+                  {[
+                    { label: 'Nama Lengkap', value: 'Kasiva Imtiyas Zaidah Iftinan' },
+                    { label: 'NIM', value: biodataRaw.nim },
+                    { label: 'Kelas', value: biodataRaw.kelas },
+                    { label: 'Program Studi', value: biodataRaw.prodi },
+                    { label: 'Domisili', value: biodataRaw.domisili }
+                  ].map((item, i) => (
+                    <div key={i} className="pb-4 border-b border-slate-50">
+                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">{item.label}</p>
+                      <p className="text-md font-bold text-slate-700">{item.value}</p>
+                    </div>
+                  ))}
+               </div>
+             </motion.div>
+             
+             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="p-10 bg-indigo-600 rounded-[2.5rem] text-white shadow-2xl flex flex-col justify-center relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px]"></div>
+               <h3 className="text-xl font-bold mb-6 flex items-center gap-3 tracking-widest uppercase relative z-10">
+                 <span className="text-3xl">💭</span> Tentang Saya
+               </h3>
+               <p className="leading-relaxed text-indigo-50 text-justify italic text-sm font-medium relative z-10">
+                 "{biodataRaw.deskripsiPanjang}"
+               </p>
+               <p className="mt-8 text-white font-black italic relative z-10">Mari berteman dan berkolaborasi! 🚀</p>
+             </motion.div>
           </div>
-          <p className="text-indigo-100 leading-relaxed text-sm sm:text-base">
-            Saya adalah seorang mahasiswa Program Studi Teknologi Informasi di Universitas Brawijaya, Fakultas Vokasi, 
-            Kelas T2F, yang berasal dari Kabupaten Trenggalek. Saya memiliki antusiasme tinggi dalam pengembangan web 
-            dan teknologi modern. Saat ini saya sedang mendalami React.js, Tailwind CSS, dan berbagai tools pengembangan 
-            aplikasi web yang inovatif. Saya berkomitmen untuk terus belajar dan mengembangkan kemampuan teknis saya 
-            dalam setiap proyek, serta aktif berkontribusi dalam kelompok proyek akademik.
-          </p>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* ============ FOOTER PROFIL ============ */}
-        {/* Footer dengan informasi copyright */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="text-center text-indigo-400 text-xs sm:text-sm font-mono"
-        >
-          © 2026 Profile Zida | Universitas Brawijaya - Teknologi Informasi - Kelas T2F
-        </motion.p>
-      </div>
-    </motion.div>
+      {/* SECTION 3: KEAHLIAN */}
+      <section ref={skillRef} className="min-h-screen p-6 bg-white relative z-10 flex flex-col items-center justify-center border-t border-slate-50">
+        <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-4xl font-black text-slate-800 mb-16 text-center tracking-tight border-b-2 border-indigo-100 pb-4 mx-auto max-w-sm uppercase">🛠️ Keahlian</motion.h2>
+        <div className="max-w-5xl w-full grid grid-cols-2 md:grid-cols-3 gap-6">
+          {skills.map((skill, index) => (
+            <motion.div 
+              key={index}
+              whileHover={{ y: -8, shadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
+              className="p-8 bg-white rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center text-center transition-all group"
+            >
+              <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{skill.icon}</div>
+              <h3 className="text-md font-bold text-slate-800 mb-1 uppercase tracking-tighter">{skill.name}</h3>
+              <p className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">{skill.level}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-12 text-center text-slate-400 text-[10px] font-bold uppercase tracking-[0.4em] border-t border-slate-100 bg-white">
+        <p>© 2026 {biodataRaw.nama} • {biodataRaw.prodi} • {biodataRaw.universitas}</p>
+        <p className="mt-3 text-slate-300 normal-case font-medium italic"></p>
+      </footer>
+    </div>
   );
 };
 
-// ==================== EXPORT KOMPONEN ====================
-// Gunakan export default agar kompatibel dengan React Router
 export default ZidaProfile;
